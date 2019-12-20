@@ -38,7 +38,7 @@
 
 创建maven web项目结构如下：
 
-![1553824739186](../../%E7%AC%94%E8%AE%B0/assets/1553824739186.png)
+![1553824739186](assets/1553824739186.png)
 
 
 
@@ -247,7 +247,7 @@ public class HelloController implements Controller {
 
 ### 流程图
 
-![1553824076571](../../%E7%AC%94%E8%AE%B0/assets/1553824076571.png)
+![1553824076571](assets/1553824076571.png)
 
 - Front Controller：前端控制器，大部分逻辑都是通过它来完成的，但其实它只是一个空执行而已，它不具体干活，只是指挥谁去干活，属于发号施令的。
 - Controller：控制器，具体工作的人，通过Front Controller来委托处理前端请求，在完成请求后会将数据传回前端控制器
