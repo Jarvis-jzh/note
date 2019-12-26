@@ -41,6 +41,10 @@
 
 #### String
 
+- String
+- Number
+- bit
+
 此String非彼String，你不能用java的String来理解它，这个String只是个泛指，实际上它不仅仅只能用来存储我们的字符串，还可以存储数字类型和二进制。
 
 这个二进制是什么？
