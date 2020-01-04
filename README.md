@@ -5,7 +5,7 @@
 
 .
 	├──Collection
-	│	└──[数组](../数组.md)
+	│	└──[数组](../Collection/数组.md)
 
 - JVM
   - JVM（未完）
