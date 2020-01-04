@@ -3,10 +3,10 @@
 
 平时通过视频、博客等方式自学后整理的笔记
 
-.</br>
-	├──[Collection](./Collection)
-	│	└──[数组](./Collection/数组.md)</br>
-
+- Collection
+  - [数组](./Collection/数组.md)
+- IO
+  - [IO](./IO/NIO.md)
 - JVM
   - JVM（未完）
   - JVM字节码对照表
