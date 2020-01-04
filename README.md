@@ -3,9 +3,9 @@
 
 平时通过视频、博客等方式自学后整理的笔记
 
-.
-	├──Collection
-	│	└──[数组](../Collection/数组.md)
+.</br>
+	├──<a href="./Collection">Collection</a></br>
+	│	└──<a href="./Collection/数组.md">数组</a></br>
 
 - JVM
   - JVM（未完）
