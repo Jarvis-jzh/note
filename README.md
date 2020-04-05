@@ -14,7 +14,7 @@
   - [JVM字节码对照表](/JVM/JVM字节码对照表.md)
 - MyBatis
   - [mybatis参数问题](/MyBatis/mybatis参数问题.md)
-  - [mybitls plugin安装](/MyBatis/mybitls plugin安装.md)
+  - [mybitls plugin安装](/MyBatis/mybitlsplugin安装.md)
   - [动态SQL](/MyBatis/动态SQL.md)
   - [关系映射](/MyBatis/关系映射.md)
 - MySQL
@@ -69,7 +69,7 @@
   - [什么是微服务](/微服务/什么是微服务.md)
   - [什么是Dubbo](/微服务/什么是Dubbo.md)
   - [常用的负载均衡](/微服务/常用的负载均衡.md)
-  - [Spring Cloud Alibaba](/微服务/Spring Cloud Alibaba.md)
-  - [Apache Dubbo Zookeeper](/微服务/Apache Dubbo Zookeeper.md)
+  - [Spring Cloud Alibaba](/微服务/SpringCloudAlibaba.md)
+  - [Apache Dubbo Zookeeper](/微服务/ApacheDubboZookeeper.md)
 - 消息队列
   - 消息队列（未完）
