@@ -1,4 +1,5 @@
-# note
+## note
+
 学习笔记
 
 平时通过视频、博客等方式自学后整理的笔记
@@ -8,62 +9,67 @@
 - IO
   - [IO](./IO/NIO.md)
 - JVM
-  - JVM（未完）
-  - JVM字节码对照表
+  - [JVM初体验](/JVM/JVM初体验.md)
+  - [JVM从入门到入魔](/JVM/JVM从入门到入魔.md)
+  - [JVM字节码对照表](/JVM/JVM字节码对照表.md)
 - MyBatis
-  - 动态SQL
-  - 关系映射
+  - [mybatis参数问题](/MyBatis/mybatis参数问题.md)
+  - [mybitls plugin安装](/MyBatis/mybitls plugin安装.md)
+  - [动态SQL](/MyBatis/动态SQL.md)
+  - [关系映射](/MyBatis/关系映射.md)
 - MySQL
-  - 事务（未完）
-  - 索引
+  - [事务](/MySQL/事务.md)
+  - [索引](/MySQL/索引.md)
 - Network
-  - HTTP
-  - Socket
-  - UDP
-  - JAVA的网络编程及JAVA IO的进化史
+  - [HTTP](/Network/HTTP.md)
+  - [Socket](/Network/Socket.md)
+  - [UDP](/Network/UDP.md)
+  - [UDP核心API](/Network/UDP核心API.md)
+  - [网络编程](/Network/网络编程.md)
+  - [JAVA的网络编程及JAVA IO的进化史](/Network/JAVA的网络编程及JAVA IO的进化史.md)
 - Redis
-  - Redis的8种数据类型
-    - String
-    - Hash
-    - List
-    - Set
-    - ZSet
-    - HyperLogLog(2.8.9 版本后)
-    - Geo(3.2版本后)，基于地理位置经纬度的数据类型
-    - Stream(5.0版本后)
-  - Redis的5种数据类型的操作及应用场景
+  - [redis](/Redis/redis.md)
 - RPC
-  - 基于Socket的BIO实现
-  - 优化思路
+  - [初识RPC](/RPC/初识RPC.md)
 - Servlet
-  - Servlet生命周期
+  - [Servlet](/Servlet/Servlet生命周期.md)
 - Spring
-  - Spring
-  - SpringAOP
-  - Spring生命周期
+  - [Spring](/Spring/Spring.md)
+  - [SpringAOP](/Spring/SpringAOP.md)
+  - [Spring生命周期](/Spring/Spring生命周期.md)
   - Spring手写（已上传代码，笔记未完）
 - SpringBoot
-  - SpringBoot
-  - SpringBoot高级
+  - [SpringBoot](/SpringBoot/SpringBoot.md)
+  - [SpringBoot高级](/SpringBoot/SpringBoot高级.md)
 - SpringMVC
+  - [SpringMVC完整版](/SpringMVC/SpringMVC.md)
+  - [SpringMVC01-入门](/SpringMVC/SpringMVC01-入门.md)
+  - [SpringMVC02-入门程序分析](/SpringMVC/SpringMVC02-入门程序分析.md)
+  - [SpringMVC03-注解开发](/SpringMVC/SpringMVC03-注解开发.md)
+  - [SpringMVC04-静态资源处理](/SpringMVC/SpringMVC04-静态资源处理.md)
+  - [SpringMVC05-Post请求中文乱码](/SpringMVC/SpringMVC05-Post请求中文乱码.md)
+  - [SpringMVC06-请求参数获取](/SpringMVC/SpringMVC06-请求参数获取.md)
+  - [SpringMVC07-JSON数据交互](/SpringMVC/SpringMVC07-JSON数据交互.md)
+  - [SpringMVC08-文件上传与下载](/SpringMVC/SpringMVC08-文件上传与下载.md)
+  - [SpringMVC09-拦截器](/SpringMVC/SpringMVC09-拦截器.md)
+  - [SpringMVC10-SSM整合开发](/SpringMVC/SpringMVC10-SSM整合开发.md)
 - SpringCloud
-  - SpringCloud（未完）
 - Thread
-  - 线程
-  - 守护线程
-  - 线程协作
-  - 线程同步
-  - 其它知识
+  - [线程](/Thread/线程.md)
+  - [守护线程](/Thread/守护线程.md)
+  - [线程协作](/Thread/线程协作.md)
+  - [线程同步](/Thread/线程同步.md)
+  - [其它知识](/Thread/其它知识.md)
 - Ubuntu
-  - ubuntu基本命令及双网卡配置教程
+  - [ubuntu](/Ubuntu/ubuntu.md)
 - 任务调度
-  - Quartz
+  - [任务定时调度](/任务调度/任务定时调度.md)
   - 分布式任务调度（未完）
 - 微服务
-  - 什么是微服务
-  - 什么是Dubbo
-  - 常用的负载均衡
-  - Spring Cloud Alibaba
-  - Apache Dubbo Zookeeper
+  - [什么是微服务](/微服务/什么是微服务.md)
+  - [什么是Dubbo](/微服务/什么是Dubbo.md)
+  - [常用的负载均衡](/微服务/常用的负载均衡.md)
+  - [Spring Cloud Alibaba](/微服务/Spring Cloud Alibaba.md)
+  - [Apache Dubbo Zookeeper](/微服务/Apache Dubbo Zookeeper.md)
 - 消息队列
-  - RabbitMQ
+  - 消息队列（未完）
