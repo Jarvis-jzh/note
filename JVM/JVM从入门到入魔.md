@@ -1201,13 +1201,12 @@ b. 非 Boolean 类型
 | -XX:MaxTenuringThreshold=6                                   |                    提升年老代的最大临界值                    | 默认值为 15                                                  |
 | -XX:InitiatingHeapOccupancyPercent                           |                启动并发GC周期时堆内存使用占比                | G1之类的垃圾收集器用它来触发并发GC周期,基于整个堆的使用率,而不只是 某一代内存的使用比. 值为 0 则表示”一直执行GC循环”. 默认值为 45. |
 | -XX:G1HeapWastePercent                                       |                    允许的浪费堆空间的占比                    | 默认是10%，如果并发标记可回收的空间小于10%,则不会触发MixedGC。 |
-| -XX:MaxGCPauseMillis=200                                     |                        G1最大停顿时间                        | 暂停时间不能太小，太小的话就会导致出现G1跟不上垃圾产生的速度。最终退化成Full GC。所以对这个参数的调优是一个持续的过程，逐步调整到
-最佳状态。 |
+| -XX:MaxGCPauseMillis=200                                     |                        G1最大停顿时间                        | 暂停时间不能太小，太小的话就会导致出现G1跟不上垃圾产生的速度。最终退化成Full GC。所以对这个参数的调优是一个持续的过程，逐步调整到<br/>最佳状态。 |
 | -XX:ConcGCThreads=n                                          |                 并发垃圾收集器使用的线程数量                 | 默认值随JVM运行的平台不同而不同                              |
 | -XX:G1MixedGCLiveThresholdPercent=65                         |        混合垃圾回收周期中要包括的旧区域设置占用率阈值        | 默认占用率为 65%                                             |
-| -XX:G1MixedGCCountTarget=8                                   | 设置标记周期完成后，对存活数据上限为G1MixedGCLIveThresholdPercent 的旧区域执行混合
-垃圾回收的目标次数 | 默认8次混合垃圾回收，混合回收的目标是要控制在此目标次数以内  |
+| -XX:G1MixedGCCountTarget=8                                   | 设置标记周期完成后，对存活数据上限为G1MixedGCLIveThresholdPercent 的旧区域执行混合垃圾回收的目标次数 | 默认8次混合垃圾回收，混合回收的目标是要控制在此目标次数以内  |
 | -XX:G1OldCSetRegionThresholdPercent=1                        |           描述Mixed GC时，Old Region被加入到CSet中           | 默认情况下，G1只把10%的Old Region加入到CSet中                |
+
 
 
 ### 常用命令
