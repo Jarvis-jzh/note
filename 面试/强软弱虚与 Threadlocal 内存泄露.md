@@ -51,6 +51,8 @@ public class StrongRefDemo {
 
 软引用只有在设置为 null 或者内存不足时才会被回收，还有在一定时间内没有被使用也会进行回收
 
+适合用来做缓存
+
 ```java
 /**
  * @author jzh
@@ -93,7 +95,7 @@ public class SoftRefDemo {
 
 ## 弱引用
 
-当对象没有被使用的下一次 GC 才会被回收
+对象会在下一次 GC 被回收
 
 ```java
 /**
@@ -104,65 +106,11 @@ public class SoftRefDemo {
  */
 public class WeakRefDemo {
     public static void main(String[] args) {
-        demo1();
-        System.out.println("------------------------");
-        demo2();
-        System.out.println("------------------------");
-        demo3();
-        System.out.println("------------------------");
-        demo4();
-    }
+        WeakReference<M> m = new WeakReference<>(new M());
 
-    public static void demo1() {
-        Object weakObj = new Object();
-        WeakReference weakReference = new WeakReference(weakObj);
+        System.out.println(m.get());
         System.gc();
-        System.out.println("GC 之后，null 之前：" + weakReference.get());
-        weakObj = null;
-        System.out.println("GC 之前，null 之后：" + weakReference.get());
-        System.gc();
-        System.out.println("GC 之后，null 之后：" + weakReference.get());
-    }
-
-
-    /**
-     * 注意：
-     * String str = "hello weak ref";
-     * 这个变量的值是存放在字符串常量池里的，而 GC 是不会清理常量池里的内容的
-     */
-    public static void demo2() {
-        String str = "hello weak ref";
-        WeakReference weakReference = new WeakReference(str);
-        str = null;
-        System.out.println("GC 之前：" + weakReference.get());
-        System.gc();
-        System.out.println("GC 之后：" + weakReference.get());
-    }
-
-    /**
-     * 注意：
-     * 这里的 str 是通过 new 来构造对象的，这意味着 str 引用的对象是存放在堆里的，所以可以被 GC 清理掉
-     */
-    public static void demo3() {
-        String strObj = new String("hello weak ref");
-        WeakReference weakReference = new WeakReference(strObj);
-        strObj = null;
-        System.out.println("GC 之前：" + weakReference.get());
-        System.gc();
-        System.out.println("GC 之后：" + weakReference.get());
-    }
-
-    public static void demo4() {
-        String str = "hello weak ref";
-        String strObj = new String("hello weak ref");
-        String strObj2 = new String(str);
-        String strObj3 = strObj;
-        String str3 = str;
-        System.out.println(str == strObj);              // false
-        System.out.println(strObj == strObj2);          // false
-        System.out.println(strObj2 == str);             // false
-        System.out.println(strObj3 == strObj);          // true
-        System.out.println(str3 == str);                // true
+        System.out.println(m.get());
     }
 }
 ```
@@ -171,7 +119,10 @@ public class WeakRefDemo {
 
 ## 软引用和弱引用的区别
 
-不同：软引用只有当内存不足、被引用对象为 null 或者一定时间内没有被引用时才会被回收；而弱引用只有当没被使用的时候，会在下一次 GC 被回收
+不同：
+
+- 软引用只有当内存不足、被引用对象为 null 或者一定时间内没有被引用时才会被回收；
+- 而弱引用只要有回收，就会被干掉
 
 
 
@@ -180,6 +131,8 @@ public class WeakRefDemo {
 使用的情况比较少，一般在对象回收前进行处理使用。
 
 phantomReference.get() 本身无论如何都是 null，只有当对象将要被回收前，会将对象放入到 ReferenceQueue 队列中，我们可以通过 ReferenceQueue 队列获取到即将回收的对象用于做其它处理。
+
+一般用来管理直接内存
 
 ```java
 /**
@@ -208,3 +161,37 @@ public class PhantomRefDemo {
 }
 ```
 
+
+
+## ThreadLocal 内存泄漏问题
+
+来源：http://mashibing.com
+
+![1588065982494](assets/1588065982494.png)
+
+为什么 Entry 要使用弱引用？
+
+- 若是强引用，即使 tl = null，但 key 的引用依然指向 ThreadLocal 对象，所以会有内存泄漏，而使用弱引用则不会。但还是有内存泄漏存在，ThreadLocal 被回收，key 的值变成 null，则导致整个 value 再也无法被方法到，而 value 使用的是强引用指向数据，因此依然存在内存泄漏。
+
+
+
+## 面试题 
+
+1. Java 中的引用类型有哪几种？
+   1. 强软弱虚
+2. 每种引用类型的特点是什么？
+   1. 强引用： 只要有指针指向就不会被回收
+   2. 软引用：空间不够时回收
+   3. 弱引用：看见就回收
+   4. 虚引用：一般用来管理直接内存的，无法直接 get 获取
+3. 每种引用类型的应用场景是什么？
+   1. 强引用：普通的用法（new Object()）
+   2. 软引用：缓存
+   3. 弱引用：防止一些 Map （ThreadLocal）的内存泄漏
+   4. 虚引用：JVM 内部管理直接内存
+4. ThreadLocal 应用在什么地方？
+   1. Spring 在 @Transaction 中的处理（connection）
+   2. Mybatis 关于分页的处理
+5. ThreadLocal 会产生内存泄漏你了解吗？
+   1. ThreadLocalMap 的 key 使用弱引用指向 ThreadLocal，用反证法，为什么不使用强引用？当 `ThreadLocal tl = new ThreadLocal()`时，即使将 `tl = null`，由于是 key 是强引用指向 ThreadLocal，这就会导致 key 所指向的这块内存永远也不会被回收。
+   2. 在 key 是弱引用指向 ThreadLocal 的情况下，ThreadLocal 会被下一个 GC 所回收，此时 `key = null`，这意味着 key 对应的 value 无法被访问，而 value 本身是强引用指向数据，这也就导致 value 这一块的内存泄漏。
